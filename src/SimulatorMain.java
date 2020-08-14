@@ -15,14 +15,14 @@ public class SimulatorMain{
             String line = readFile.readLine();
             int i = 0;
 
-            if(!(args.length == 1 && args[0].equals("scenerio.txt"))) {
+            if(!(args.length == 1 && args[0].equals("scenario.txt"))) {
                 System.out.println("Invalid argument");
                 System.exit(1);
             }
             if(line != null) { 
                 int simulation = Integer.parseInt(line.split(" ")[0]);
                 if(simulation < 0) {
-                    System.out.println(simulation+" is an invalid number of simulation");
+                    System.out.println(simulation+" is an invalid number of time weather changes");
                     System.exit(1);
                 }
             }
