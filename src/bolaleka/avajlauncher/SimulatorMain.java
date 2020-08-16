@@ -1,9 +1,12 @@
-package bolaleka.avajluncher;
+package bolaleka.avajlauncher;
 
-import bolaleka.avajluncher.*;
+import bolaleka.avajlauncher.weatherclass.WeatherTower;
+import bolaleka.avajlauncher.aircraft.Flyable;
+import bolaleka.avajlauncher.aircraft.AircraftFactory;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.*; 
 import java.lang.*;
 
 public class SimulatorMain{
@@ -19,16 +22,33 @@ public class SimulatorMain{
                 System.out.println("Invalid argument");
                 System.exit(1);
             }
-            if(line != null) { 
-                int simulation = Integer.parseInt(line.split(" ")[0]);
-                if(simulation < 0) {
-                    System.out.println(simulation+" is an invalid number of time weather changes");
-                    System.exit(1);
-                }
-            }
+
+            try{
+                    if(line != null) { 
+                        int simulation = Integer.parseInt(line.split(" ")[0]);
+                        if(simulation < 0) {
+                            System.out.println(simulation+" is an invalid number of time weather changes");
+                            System.exit(1);
+                        }
+                    }
+             } catch(Exception e) {
+                 System.out.println("Simulation Exception error not yetimplemented");
+             }
+
+            WeatherTower gettower = new WeatherTower();
             while((line = readFile.readLine()) != null) {
-                System.out.println(line);
-            }          
+                
+                String[] getlinecolumn = line.split(" ");
+                int longitude = Integer.parseInt(line.split(" ")[2]);
+                int latitude = Integer.parseInt(line.split(" ")[3]);
+                int height = Integer.parseInt(line.split(" ")[4]);
+
+                Flyable air = AircraftFactory.newAircraft(getlinecolumn[0], getlinecolumn[1], longitude, latitude, height);
+
+                gettower.register(air);
+                air.registerTower(gettower);
+
+            }         
         } catch (Exception e) {
             //TODO: handle exception
             System.out.println("An error occurred.");

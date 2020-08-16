@@ -1,6 +1,4 @@
-package bolaleka.avajluncher.aircraft;
-
-import bolaleka.avajluncher.*;
+package bolaleka.avajlauncher.aircraft;
 
 public class Aircraft {
 

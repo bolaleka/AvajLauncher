@@ -1,4 +1,4 @@
-package bolaleka.avajluncher.aircraft;
+package bolaleka.avajlauncher.aircraft;
 
 import java.io.*;
 import java.util.*;
@@ -12,7 +12,7 @@ public class Coordinates{
     private int height;
     
     //private coordinates method.
-    private Coordinates(int longitude, int latitude, int height) {
+    Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.height= height;
@@ -20,7 +20,6 @@ public class Coordinates{
 
     //Get longitude method.
     public int getLongitude() {
-        System.out.println("checking longitude class");
        return this.longitude;
     }
 

@@ -1,5 +1,11 @@
-./Aircraft.java
-./Coordinates.java
-./Flyable.java
-./SimulatorMain.java
-./WeatherTower.java
+./bolaleka/avajlauncher/aircraft/Aircraft.java
+./bolaleka/avajlauncher/aircraft/AircraftFactory.java
+./bolaleka/avajlauncher/aircraft/Baloon.java
+./bolaleka/avajlauncher/aircraft/Coordinates.java
+./bolaleka/avajlauncher/aircraft/Flyable.java
+./bolaleka/avajlauncher/aircraft/Helicopter.java
+./bolaleka/avajlauncher/aircraft/JetPlane.java
+./bolaleka/avajlauncher/SimulatorMain.java
+./bolaleka/avajlauncher/weatherclass/Tower.java
+./bolaleka/avajlauncher/weatherclass/WeatherProvider.java
+./bolaleka/avajlauncher/weatherclass/WeatherTower.java

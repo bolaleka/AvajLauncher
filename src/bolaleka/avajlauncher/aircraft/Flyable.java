@@ -1,6 +1,6 @@
-package bolaleka.avajluncher.aircraft;
+package bolaleka.avajlauncher.aircraft;
 
-import bolaleka.avajluncher.tower.*;
+import bolaleka.avajlauncher.weatherclass.*;
 
 public interface Flyable{
 
