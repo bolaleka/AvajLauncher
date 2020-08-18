@@ -17,7 +17,6 @@ public class AircraftFactory {
         } else {
             System.out.println("Cannot find such Aircraft in the factory");
             return new Helicopter(name, getCoord);
-        }
-        
+        }  
     }
 }

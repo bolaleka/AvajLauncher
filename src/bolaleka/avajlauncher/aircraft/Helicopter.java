@@ -4,7 +4,7 @@ import bolaleka.avajlauncher.weatherclass.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
 
-    private WeatherTower weatherTower;
+    private WeatherTower weatherTower = new WeatherTower();
 
     Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
@@ -16,21 +16,25 @@ public class Helicopter extends Aircraft implements Flyable {
         return String.format("Tower says: Helicopter#%s(%d)", name, id);
     }
 
+    
     public void updateConditions(){
         String weather = weatherTower.getWeather(coordinates);
+        int hi = coordinates.getHeight();
+        int lon = coordinates.getLongitude();
+        int lat = coordinates.getLatitude();
 
         if(weather.equals("SUN")) {
-            System.out.println("What kind of sun is shinning today");
-           //coordinates(this.longitude+10, this.latitude+0, this.height+2);
+            System.out.println("Helicopter#"+name + "(" + id +"):" +" What kind of sun is shinning today(Helicopter)");
+           new Coordinates(lon+10, lat, hi+2);
         }else if(weather.equals("RAIN")) {
-            System.out.println("Raining period, let get some coffee");
-           // coordinates(longitude+5, latitude, height);
+            System.out.println("Helicopter#"+name + "(" + id +"):" +" Raining period, let get some coffee(Helicopter)");
+            new Coordinates(lon+5, lat, hi);
         }else if(weather.equals("FOG")) {
-            System.out.println("The weather is not clear, it will be difficult to land");
-          //  coordinates(longitude+1, latitude, heigh);
+            System.out.println("Helicopter#"+name + "(" + id +"):" +" The weather is not clear, it will be difficult to land (Helicopter)");
+            new Coordinates(lon+1, lat, hi);
         }else if(weather.equals("SNOW")) {
-            System.out.println("Need to be aware of the white snow");
-          //  coordinates(longitude, latitude, height-12);
+            System.out.println("Helicopter#"+name + "(" + id +"):" +" Need to be aware of the white snow (Helicopter)");
+            new Coordinates(lon, lat, hi-12);
         }
 
         // if(coordinates.getHeight() < 0){

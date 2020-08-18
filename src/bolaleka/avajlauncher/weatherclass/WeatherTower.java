@@ -3,14 +3,13 @@ package bolaleka.avajlauncher.weatherclass;
 import bolaleka.avajlauncher.aircraft.Coordinates;
 
 public class WeatherTower extends Tower {
-    WeatherProvider getnewProvider = WeatherProvider.getProvider();
+    WeatherProvider getnewProvider = new WeatherProvider();
 
     public String getWeather(Coordinates coordinates) {
-
-         return getnewProvider.getCurrentWeather(coordinates);
+        return getnewProvider.getCurrentWeather(coordinates);
     }
 
-    private void changeWeather() {
+    public void changeWeather() {
         conditionsChanged();
     }
 }

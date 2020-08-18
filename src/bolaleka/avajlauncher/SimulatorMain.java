@@ -6,54 +6,53 @@ import bolaleka.avajlauncher.aircraft.AircraftFactory;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.*; 
 import java.lang.*;
+import java.util.ArrayList;
 
 public class SimulatorMain{
-
     public static void main(String[] args) {
         
+        WeatherTower gettower = new WeatherTower();
         try {
             BufferedReader readFile = new BufferedReader(new FileReader(args[0]));
             String line = readFile.readLine();
-            int i = 0;
-
-            if(!(args.length == 1 && args[0].equals("scenario.txt"))) {
+            
+            if(!(args.length == 1 )) {
                 System.out.println("Invalid argument");
                 System.exit(1);
             }
+            if(line != null) { 
+               int simCount = Integer.parseInt(line.split(" ")[0]);
+                if(simCount <= 0) {
+                    System.out.println(simCount+" is an invalid number of time weather changes");
+                    System.exit(1);
+                }
+            
+                while((line = readFile.readLine()) != null) {
+                    
+                    String[] getlinecolumn = line.split(" ");
+                    int longitude = Integer.parseInt(line.split(" ")[2]);
+                    int latitude = Integer.parseInt(line.split(" ")[3]);
+                    int height = Integer.parseInt(line.split(" ")[4]);
 
-            try{
-                    if(line != null) { 
-                        int simulation = Integer.parseInt(line.split(" ")[0]);
-                        if(simulation < 0) {
-                            System.out.println(simulation+" is an invalid number of time weather changes");
-                            System.exit(1);
-                        }
+                    Flyable air = AircraftFactory.newAircraft(getlinecolumn[0], getlinecolumn[1], longitude, latitude, height);
+                    gettower.register(air);
+                    air.registerTower(gettower);
+                    if(height == 0){
+                        gettower.unregister(air);
                     }
-             } catch(Exception e) {
-                 System.out.println("Simulation Exception error not yetimplemented");
-             }
-
-            WeatherTower gettower = new WeatherTower();
-            while((line = readFile.readLine()) != null) {
-                
-                String[] getlinecolumn = line.split(" ");
-                int longitude = Integer.parseInt(line.split(" ")[2]);
-                int latitude = Integer.parseInt(line.split(" ")[3]);
-                int height = Integer.parseInt(line.split(" ")[4]);
-
-                Flyable air = AircraftFactory.newAircraft(getlinecolumn[0], getlinecolumn[1], longitude, latitude, height);
-
-                gettower.register(air);
-                air.registerTower(gettower);
-
-            }         
-        } catch (Exception e) {
-            //TODO: handle exception
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }     
+                } 
+                for(int i = 1; i <= simCount; i++) {
+                    gettower.changeWeather();
+                } 
+            }
+           readFile.close();        
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        } catch (IOException e) {
+            System.err.println("Unable to read the file.");
+        }  
+ 
     }
 }
 
