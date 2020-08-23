@@ -15,8 +15,7 @@ public class AircraftFactory {
         }else if(type.equals("JetPlane")){
             return new JetPlane(name, getCoord);
         } else {
-            System.out.println("Cannot find such Aircraft in the factory");
-            return new Helicopter(name, getCoord);
+            return null;
         }  
     }
 }

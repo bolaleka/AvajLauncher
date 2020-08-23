@@ -2,6 +2,7 @@ package bolaleka.avajlauncher.weatherclass;
 
 import bolaleka.avajlauncher.aircraft.Coordinates;
 
+
 public class WeatherProvider {
 
     private static WeatherProvider weatherProvider;
@@ -15,15 +16,16 @@ public class WeatherProvider {
 
     public String getCurrentWeather(Coordinates coordinates) {
         
-        int totalCoord = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
+        int total = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
+        int nearestNum = Math.round(total);
 
-        if(totalCoord <= 10) {
+        if(nearestNum <= 20) {
             return weather[3];
-        }else if(totalCoord > 10 && totalCoord <= 24) {
+        }else if(nearestNum > 20 && nearestNum <= 40) {
             return weather[2];
-        }else if(totalCoord > 24 && totalCoord <= 29) {
+        }else if(nearestNum > 40 && nearestNum <= 60) {
             return weather[1];
-        }else if(totalCoord > 29){
+        }else if(nearestNum > 60){
             return weather[0];
         }else {
             return ("invalid condinates\n");

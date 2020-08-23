@@ -1,51 +1,71 @@
 package bolaleka.avajlauncher.aircraft;
 
 import bolaleka.avajlauncher.weatherclass.WeatherTower;
-import bolaleka.avajlauncher.weatherclass.Tower;
 
 public class Baloon extends Aircraft implements Flyable {
 
     private WeatherTower weatherTower = new WeatherTower();
-    private Tower newTower = new Tower();
-    private Flyable flyable;
-    
+    private int curHeight;
+    private int sunhi;
+    private int snowhi;
+    private int rainhi;
+    private int foghi;
+    private int lon;
 
     Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
 
     public String toString(){
-        // fl.forEach(s -> System.out.println(Arrays.toString((String[]) s )));
         return String.format("Tower says: Baloon#%s(%d)", name, id);
     }
 
-    public void updateConditions(){
-        
+    public void updateConditions(){ 
         String weather = weatherTower.getWeather(coordinates);
-        int hi = coordinates.getHeight();
-        int lon = coordinates.getLongitude();
-        int lat = coordinates.getLatitude();
-
-        if(hi > 100 ){
-            hi = 100;
-        }else if(hi < 0) {
-            hi = 0;
-            System.out.println("Baloon#"+name + "(" + id +"):" + "landing");
-            newTower.unregister(flyable);
-        }
 
         if(weather.equals("SUN")) {
-            System.out.println("Baloon#"+name + "(" + id +"):"+ " What kind of sun is shinning today(Baloon)");
-            new Coordinates(lon+2, lat, hi+4);
+            sunhi = sunhi + 4;
+            lon = lon + 2;
+            curHeight = sunhi + coordinates.getHeight();
+            if(curHeight > 100) {
+                curHeight = 100;
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot(Baloon)" + curHeight );
+            }else {
+               System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot(Baloon)" + curHeight);
+            }
         }else if(weather.equals("RAIN")) {
-            System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Baloon)");
-            new Coordinates(lon, lat, hi-5);
+            rainhi = rainhi - 5;
+            curHeight = rainhi + coordinates.getHeight();
+            if(curHeight > 100) {
+                curHeight = 100;
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Baloon)" + curHeight );
+            }else{
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Baloon)"+curHeight);
+            }
         }else if(weather.equals("FOG")) {
-            System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Baloon)");
-            new Coordinates(lon, lat, hi-3);
+            foghi = foghi - 3;
+             curHeight = foghi + coordinates.getHeight();
+            if(curHeight > 100) {
+                curHeight = 100;
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Baloon)" + curHeight );
+            }else{
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Baloon)"+curHeight);  
+            }
         }else if(weather.equals("SNOW")) {
-            System.out.println("Baloon#"+name + "(" + id +"):" + " Need to be aware of the white snow (Baloon)");
-            new Coordinates(lon, lat, hi-15);
+            snowhi = snowhi - 15;
+             curHeight = sunhi + coordinates.getHeight();
+            if(curHeight > 100) {
+                curHeight = 100;
+                System.out.println("Baloon#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Baloon)" + curHeight );
+            }else {
+                System.out.println("Baloon#"+name + "(" + id +"):" + " Need to be aware of the white snow (Baloon)" + curHeight);
+            }
+        }
+
+        if(curHeight <= 0){
+            curHeight = 0;
+            System.out.println("Baloon#"+ name + "(" + id +")  " + "Landing." + curHeight );
+            weatherTower.unregister(this);
         }
 
     }
