@@ -3,28 +3,29 @@ package bolaleka.avajlauncher;
 import bolaleka.avajlauncher.weatherclass.WeatherTower;
 import bolaleka.avajlauncher.aircraft.Flyable;
 import bolaleka.avajlauncher.aircraft.AircraftFactory;
+import bolaleka.avajlauncher.weatherclass.InvalidFileException;
 
 import java.io.*;
 import java.util.*;
 import java.lang.*;
 
 public class SimulatorMain{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidFileException {
 
         WeatherTower gettower = new WeatherTower();
         try {
             if(args.length != 1) {
-                System.out.println("Invalid argument");
-                System.exit(1);
+                if(args.length == 0) {
+                    System.out.println("Not enough argument found..");
+                    System.exit(1);
+                }else if(args.length > 1) {
+                    System.out.println("Invalid argument");
+                    System.exit(1); 
+                }
             }
-
             BufferedReader readFile = new BufferedReader(new FileReader(args[0]));
             String line = readFile.readLine();
             Flyable air;
-            if(!args[0].equalsIgnoreCase("scenario.txt")){
-                System.out.println("Not a valid file name");
-                System.exit(1);
-            }
             if(line != null) { 
                int simCount = Integer.parseInt(line.split(" ")[0]);
                 if(simCount <= 0) {
@@ -54,12 +55,12 @@ public class SimulatorMain{
                 for(int i = 1; i <= simCount; i++) {
                     gettower.changeWeather();
                 } 
-
             }
            readFile.close();        
         } catch (Exception e) {
-            System.out.println("An error occur");
-        }  
- 
+            if(!args[0].equalsIgnoreCase("scenario.txt")) {
+                throw new InvalidFileException("The file name is incorrect, please check your spelling..");
+            }
+        } 
     }
 }

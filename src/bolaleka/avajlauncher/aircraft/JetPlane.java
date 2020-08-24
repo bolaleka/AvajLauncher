@@ -16,7 +16,6 @@ public class JetPlane extends Aircraft implements Flyable {
         super(name, coordinates);
     }
 
-    
     public String toString(){
         return String.format("Tower says: JetPlane#%s(%d)", name, id);
     }

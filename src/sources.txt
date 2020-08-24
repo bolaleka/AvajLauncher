@@ -6,6 +6,7 @@
 ./bolaleka/avajlauncher/aircraft/Helicopter.java
 ./bolaleka/avajlauncher/aircraft/JetPlane.java
 ./bolaleka/avajlauncher/SimulatorMain.java
+./bolaleka/avajlauncher/weatherclass/InvalidFileException.java
 ./bolaleka/avajlauncher/weatherclass/Tower.java
 ./bolaleka/avajlauncher/weatherclass/WeatherProvider.java
 ./bolaleka/avajlauncher/weatherclass/WeatherTower.java

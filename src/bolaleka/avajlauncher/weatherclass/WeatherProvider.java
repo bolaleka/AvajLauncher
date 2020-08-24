@@ -17,8 +17,7 @@ public class WeatherProvider {
     public String getCurrentWeather(Coordinates coordinates) {
         
         int nearestNum = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
-      // int nearestNum = Math.round(total / 25);
-
+    
         if(nearestNum <= 20) {
             return weather[3];
         }else if(nearestNum > 20 && nearestNum <= 40) {
@@ -28,7 +27,7 @@ public class WeatherProvider {
         }else if(nearestNum > 60){
             return weather[0];
         }else {
-            return ("invalid condinates\n");
+            return ("invalid weather\n");
         }
 
     }
