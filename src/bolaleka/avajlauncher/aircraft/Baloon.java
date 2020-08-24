@@ -53,13 +53,14 @@ public class Baloon extends Aircraft implements Flyable {
             }
         }else if(weather.equals("SNOW")) {
             snowhi = snowhi - 15;
-             curHeight = sunhi + coordinates.getHeight();
+             curHeight = snowhi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
                 System.out.println("Baloon#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Baloon)" + curHeight );
             }else {
                 System.out.println("Baloon#"+name + "(" + id +"):" + " Need to be aware of the white snow (Baloon)" + curHeight);
             }
+
         }
 
         if(curHeight <= 0){
@@ -67,8 +68,7 @@ public class Baloon extends Aircraft implements Flyable {
             System.out.println("Baloon#"+ name + "(" + id +")  " + "Landing." + curHeight );
             weatherTower.unregister(this);
         }
-
-    }
+}
 
     public void registerTower(WeatherTower weatherTower){
          this.weatherTower = weatherTower;

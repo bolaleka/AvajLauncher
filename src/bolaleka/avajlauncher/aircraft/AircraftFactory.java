@@ -1,6 +1,6 @@
 package bolaleka.avajlauncher.aircraft;
 
-//import bolaleka.avajlauncher.aircraft.*;
+import java.lang.*;
 
 public class AircraftFactory {
 
@@ -8,11 +8,11 @@ public class AircraftFactory {
         
         Coordinates getCoord = new Coordinates(longitude, latitude, height);
 
-        if(type.equals("Baloon")) {
+        if(type.equalsIgnoreCase("Baloon")) {
            return new Baloon(name, getCoord);
-        }else if(type.equals("Helicopter")) {
+        }else if(type.equalsIgnoreCase("Helicopter")) {
             return new Helicopter(name, getCoord);
-        }else if(type.equals("JetPlane")){
+        }else if(type.equalsIgnoreCase("JetPlane")){
             return new JetPlane(name, getCoord);
         } else {
             return null;

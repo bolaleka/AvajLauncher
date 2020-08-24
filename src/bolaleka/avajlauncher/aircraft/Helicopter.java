@@ -42,7 +42,7 @@ public class Helicopter extends Aircraft implements Flyable {
             System.out.println("Helicopter#"+name + "(" + id +"):" +" The weather is not clear, it will be difficult to land (Helicopter)");
         }else if(weather.equals("SNOW")) {
             snowhi = snowhi - 12;
-            curHeight = sunhi + coordinates.getHeight();
+            curHeight = snowhi + coordinates.getHeight();
            if(curHeight > 100) {
                curHeight = 100;
                System.out.println("Helicopter#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Helicopter)" + curHeight );

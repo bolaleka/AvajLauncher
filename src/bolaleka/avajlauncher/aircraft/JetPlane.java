@@ -42,7 +42,7 @@ public class JetPlane extends Aircraft implements Flyable {
                System.out.println("JetPlane#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Jet)");  
         }else if(weather.equals("SNOW")) {
             snowhi = snowhi - 15;
-            curHeight = sunhi + coordinates.getHeight();
+            curHeight = snowhi + coordinates.getHeight();
            if(curHeight > 100) {
                curHeight = 100;
                System.out.println("JetPlane#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Jet)" + curHeight );
