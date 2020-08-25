@@ -29,43 +29,43 @@ public class Baloon extends Aircraft implements Flyable {
             curHeight = sunhi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
-                System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot(Baloon)" + curHeight );
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot");
             }else {
-               System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot(Baloon)" + curHeight);
+               System.out.println("Baloon#"+name + "(" + id +"):"+ " This weather is Hot");
             }
         }else if(weather.equals("RAIN")) {
             rainhi = rainhi - 5;
             curHeight = rainhi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
-                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Baloon)" + curHeight );
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee");
             }else{
-                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Baloon)"+curHeight);
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " Raining period, let get some coffee");
             }
         }else if(weather.equals("FOG")) {
             foghi = foghi - 3;
              curHeight = foghi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
-                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Baloon)" + curHeight );
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land ");
             }else{
-                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Baloon)"+curHeight);  
+                System.out.println("Baloon#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land ");  
             }
         }else if(weather.equals("SNOW")) {
             snowhi = snowhi - 15;
              curHeight = snowhi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
-                System.out.println("Baloon#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Baloon)" + curHeight );
+                System.out.println("Baloon#"+name + "(" + id +"):"+  " Need to be aware of the white snow ");
             }else {
-                System.out.println("Baloon#"+name + "(" + id +"):" + " Need to be aware of the white snow (Baloon)" + curHeight);
+                System.out.println("Baloon#"+name + "(" + id +"):" + " Need to be aware of the white snow ");
             }
 
         }
 
         if(curHeight <= 0){
             curHeight = 0;
-            System.out.println("Baloon#"+ name + "(" + id +")  " + "Landing." + curHeight );
+            System.out.println("Baloon#"+ name + "(" + id +")  " + "Landing.");
             weatherTower.unregister(this);
         }
 }

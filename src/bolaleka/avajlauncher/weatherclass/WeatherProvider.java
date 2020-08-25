@@ -18,13 +18,13 @@ public class WeatherProvider {
         
         int nearestNum = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
     
-        if(nearestNum <= 20) {
+        if(nearestNum <= 40) {
             return weather[3];
-        }else if(nearestNum > 20 && nearestNum <= 40) {
-            return weather[2];
         }else if(nearestNum > 40 && nearestNum <= 60) {
+            return weather[2];
+        }else if(nearestNum > 60 && nearestNum <= 80) {
             return weather[1];
-        }else if(nearestNum > 60){
+        }else if(nearestNum > 80){
             return weather[0];
         }else {
             return ("invalid weather\n");

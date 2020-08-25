@@ -29,30 +29,30 @@ public class JetPlane extends Aircraft implements Flyable {
             curHeight = sunhi + coordinates.getHeight();
             if(curHeight > 100) {
                 curHeight = 100;
-                System.out.println("JetPlane#"+name + "(" + id +"):"+ " This weather is Hot(Jet)" + curHeight );
+                System.out.println("JetPlane#"+name + "(" + id +"):"+ " This weather is Hot");
             }else {
-               System.out.println("JetPlane#"+name + "(" + id +"):"+ " This weather is Hot(Jet)" + curHeight);
+               System.out.println("JetPlane#"+name + "(" + id +"):"+ " This weather is Hot");
             }
         }else if(weather.equals("RAIN")) {
             rainlon = rainlon + 5;
-                System.out.println("JetPlane#"+name + "(" + id +"):"+ " Raining period, let get some coffee(Jet)");
+                System.out.println("JetPlane#"+name + "(" + id +"):"+ " Raining period, let get some coffee");
         }else if(weather.equals("FOG")) {
             foglon = foglon + 1;
-               System.out.println("JetPlane#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land (Jet)");  
+               System.out.println("JetPlane#"+name + "(" + id +"):"+ " The weather is not clear, it will be difficult to land");  
         }else if(weather.equals("SNOW")) {
             snowhi = snowhi - 15;
             curHeight = snowhi + coordinates.getHeight();
            if(curHeight > 100) {
                curHeight = 100;
-               System.out.println("JetPlane#"+name + "(" + id +"):"+  " Need to be aware of the white snow (Jet)" + curHeight );
+               System.out.println("JetPlane#"+name + "(" + id +"):"+  " Need to be aware of the white snow ");
            }else {
-               System.out.println("JetPlane#"+name + "(" + id +"):" + " Need to be aware of the white snow (Jet)" + curHeight);
+               System.out.println("JetPlane#"+name + "(" + id +"):" + " Need to be aware of the white snow ");
            }
             
         }
         if(curHeight <= 0){
             curHeight = 0;
-            System.out.println("JetPlane#"+ name + "(" + id +")  " + "Landing." + curHeight );
+            System.out.println("JetPlane#"+ name + "(" + id +")  " + "Landing." );
             weatherTower.unregister(this);
         }
     }

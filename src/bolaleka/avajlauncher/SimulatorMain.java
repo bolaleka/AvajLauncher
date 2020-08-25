@@ -32,8 +32,9 @@ public class SimulatorMain{
                     System.out.println(simCount+" is an invalid number of time weather changes");
                     System.exit(1);
                 }
+  
                 File createFile = new File("simulation.txt");  
-                FileOutputStream returnOutput = new FileOutputStream(createFile);  
+                FileOutputStream returnOutput = new FileOutputStream(createFile);
                 System.setOut(new PrintStream (returnOutput));       
                 while((line = readFile.readLine()) != null) {
 
