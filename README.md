@@ -1,10 +1,14 @@
 # AvajLauncher
 
-The goal of this project is to implement an aircraft simulation program based on the class diagram provided.
+The goal is to implement an aircraft simulation program in Java, based on the UML diagram provided.
 
-The program can be compile with the below code:
+The program can be compile using the below code in the root folder:
 
+STEP 1:
 find -name *.java > sources.txt
 javac -sourcepath -d @sources.txt
+
+STEP 2: Navigate to src folder and run
+
 java bolaleka.avajlauncher.SimulatorMain scenario.txt
 
