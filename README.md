@@ -12,4 +12,3 @@ javac -sourcepath -d @sources.txt
 STEP 2: Navigate to src folder and run
 
 java bolaleka.avajlauncher.SimulatorMain scenario.txt
-
