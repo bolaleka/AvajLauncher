@@ -8,5 +8,5 @@ find -name *.java > sources.txt
 
 javac -sourcepath -d @sources.txt
 
-java bolaleka.avajlauncher.SimulatorMain scenario.txt
+Navigate to src folde and run:  java bolaleka.avajlauncher.SimulatorMain scenario.txt
 
