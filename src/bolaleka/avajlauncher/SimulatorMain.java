@@ -25,10 +25,14 @@ public class SimulatorMain{
             }
             BufferedReader readFile = new BufferedReader(new FileReader(args[0]));
             String line = readFile.readLine();
+            if(line.length() <= 0) {
+                System.out.println(" No number of stimulation found");
+                System.exit(1);
+            }
             Flyable air;
             if(line != null) { 
                int simCount = Integer.parseInt(line.split(" ")[0]);
-                if(simCount <= 0) {
+                if(simCount <= 0 ) {
                     System.out.println(simCount+" is an invalid number of time weather changes");
                     System.exit(1);
                 }
