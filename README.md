@@ -2,7 +2,7 @@
 
 The goal is to implement an aircraft simulation program in Java, based on the UML diagram provided.
 
-The program can be compile by following the below steps in the root folder:
+The program can be compile with the following steps below in the root folder:
 
 STEP 1:
 find -name *.java > sources.txt
